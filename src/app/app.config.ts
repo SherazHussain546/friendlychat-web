@@ -8,6 +8,8 @@ import { provideMessaging, getMessaging } from '@angular/fire/messaging';
 import { provideStorage, getStorage, connectStorageEmulator } from '@angular/fire/storage';
 import { routes } from './app.routes';
 import { provideRouter } from '@angular/router';
+import { getDatabase, provideDatabase } from '@angular/fire/database';
+import { getPerformance, providePerformance } from '@angular/fire/performance';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +21,6 @@ export const appConfig: ApplicationConfig = {
       provideStorage(() => getStorage()),
       provideMessaging(() => getMessaging())
     ),
-    provideRouter(routes)
+    provideRouter(routes), provideFirebaseApp(() => initializeApp({"projectId":"friendlychat-35b6a","appId":"1:424011571644:web:b48231dcd40edd45cd8bb9","storageBucket":"friendlychat-35b6a.firebasestorage.app","apiKey":"AIzaSyBn7_pEsHFiZv5DwJg3T2Cpq_9ER3wh-jI","authDomain":"friendlychat-35b6a.firebaseapp.com","messagingSenderId":"424011571644","measurementId":"G-53V2LRPTBT"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideDatabase(() => getDatabase()), provideMessaging(() => getMessaging()), providePerformance(() => getPerformance()), provideStorage(() => getStorage())
   ],
 };
